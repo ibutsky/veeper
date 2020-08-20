@@ -3,6 +3,7 @@ Python/Numeric version of this module was called mpfit. This version was modifie
 """
 from __future__ import print_function, absolute_import, division, unicode_literals
 from __future__ import division # confidence medium
+
 __version__ = '0.2'
 
 """
@@ -2200,7 +2201,7 @@ e.g. mpfit.status, mpfit.errmsg, mpfit.params, npfit.niter, mpfit.covar.
     def calc_covar(self, rr, ipvt=None, tol=1.e-14):
 
         if (self.debug): print('Entering calc_covar...')
-        if numpy.rank(rr) != 2:
+        if len(rr.shape) != 2:
             print('ERROR: r must be a two-dimensional matrix')
             return(-1)
         s = numpy.shape(rr)
